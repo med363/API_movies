@@ -1,3 +1,15 @@
 spring:
   application:
-    name: movies
+    name: movies  # C'est ici que vous ajoutez le nom !
+
+  mongodb:
+    uri: mongodb+srv://movies:movies@cluster0.gck5egd.mongodb.net/?appName=Cluster0
+    database: moviesdb
+
+server:
+  port: 8080
+
+# Optionnel : logging
+logging:
+  level:
+    org.springframework.data.mongodb.core: DEBUG

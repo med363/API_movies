@@ -15,16 +15,6 @@ public class MoviesApplication {
 		SpringApplication.run(MoviesApplication.class, args);
 	}
 
-	/*get*/
-	@GetMapping("/")
-	public String Rootapi(){
-		return "shahia tayba ";
-	}
 
-	/* get avec paramètre dans le chemin */
-	@GetMapping("/{name}")
-	public String Rootapi(@PathVariable String name) {
-		return "shahia tayba " + name;
-	}
 
 }
