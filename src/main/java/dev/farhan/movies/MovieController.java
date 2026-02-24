@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 /*fix root*/
-@RequestMapping("/api/v/movies")
+@RequestMapping("/api/v1/movies")
 public class MovieController {
     /*get all*/
     @GetMapping
