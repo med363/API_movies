@@ -3,8 +3,8 @@ spring:
     name: movies  # C'est ici que vous ajoutez le nom !
 
   mongodb:
-    uri: mongodb+srv://movies:movies@cluster0.gck5egd.mongodb.net/?appName=Cluster0
-    database: moviesdb
+    uri: mongodb+srv://${env.MONGO_USER}:${env.MONGO_PASSWORD}@${env.MONGO_CLUSTER}/?appName=Cluster0
+    database: ${env.MONGO_DATABASE}
 
 server:
   port: 8080
