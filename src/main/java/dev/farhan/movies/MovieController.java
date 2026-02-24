@@ -15,4 +15,6 @@ public class MovieController {
     public ResponseEntity<String> getAllMovies() {
         return new ResponseEntity<String>("All movies", HttpStatus.OK);
     }
+
+    /*pull data from databse so we need service so we will create repository*/
 }
