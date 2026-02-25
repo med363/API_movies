@@ -33,4 +33,9 @@ public class MovieService {
     public Optional<Movies> getSingleMovie(ObjectId id) {
         return movieRepository.findById(id);
     }
+
+    /*find by imdbId*/
+    public Optional<Movies> getSingleMovie(String imdbId) {
+        return movieRepository.findByImdbId(imdbId);
+    }
 }
