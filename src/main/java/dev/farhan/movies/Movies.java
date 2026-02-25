@@ -11,7 +11,7 @@ import org.springframework.data.mongodb.core.mapping.DocumentReference;
 import java.util.List;
 
 /*entities(table)*/
-@Document(collation = "movies")
+@Document(collection = "movies")
 /*getter/setter*/
 @Data
 /*CONSTRRUCTORS*/

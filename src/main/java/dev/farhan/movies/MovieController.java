@@ -60,8 +60,10 @@ return new ResponseEntity<Optional<Movies>>(movieService.getSingleMovie(id), Htt
             Movies createdMovie = movieService.createMovie(movie);
             return new ResponseEntity<>(createdMovie, HttpStatus.CREATED);
         } catch (RuntimeException e) {
-            // En cas de doublon ou autre erreur
-            return new ResponseEntity<>(null, HttpStatus.CONFLICT);
+            // Remplacer new ResponseEntity<>(null, HttpStatus.CONFLICT) par:
+            return ResponseEntity.status(HttpStatus.CONFLICT).build();
+            // OU avec body null explicite:
+            // return ResponseEntity.status(HttpStatus.CONFLICT).body(null);
         }
     }
 
@@ -95,4 +97,4 @@ return new ResponseEntity<Optional<Movies>>(movieService.getSingleMovie(id), Htt
         }
     }
 }
-}
+

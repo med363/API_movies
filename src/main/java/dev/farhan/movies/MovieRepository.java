@@ -6,9 +6,10 @@ import org.springframework.stereotype.Repository;
 
 import java.util.Optional;
 
-/*that interface is a repository*/
 @Repository
 public interface MovieRepository extends MongoRepository<Movies, ObjectId> {
-    /*searchby imdbid also*/
     Optional<Movies> findByImdbId(String imdbId);
+
+    // Optionnel: méthode de suppression par imdbId
+    void deleteByImdbId(String imdbId);
 }

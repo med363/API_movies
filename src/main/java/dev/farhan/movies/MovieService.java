@@ -66,4 +66,18 @@ public class MovieService {
         return false;
     }
 
+    /**
+     * DELETE BY IMDB ID - Supprimer un film par son imdbId
+     * @param imdbId L'imdbId du film à supprimer
+     * @return true si supprimé, false si non trouvé
+     */
+    public boolean deleteMovieByImdbId(String imdbId) {
+        Optional<Movies> movie = movieRepository.findByImdbId(imdbId);
+        if (movie.isPresent()) {
+            movieRepository.delete(movie.get());
+            return true;
+        }
+        return false;
+    }
+
 }
