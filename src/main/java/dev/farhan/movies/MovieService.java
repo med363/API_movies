@@ -38,4 +38,32 @@ public class MovieService {
     public Optional<Movies> getSingleMovie(String imdbId) {
         return movieRepository.findByImdbId(imdbId);
     }
+    /**
+     * POST - Créer un nouveau film
+     * @param movie L'objet film à créer
+     * @return Le film créé avec son ID généré
+     */
+    public Movies createMovie(Movies movie) {
+        // Vérifier si l'imdbId existe déjà pour éviter les doublons
+        Optional<Movies> existingMovie = movieRepository.findByImdbId(movie.getImdbId());
+        if (existingMovie.isPresent()) {
+            throw new RuntimeException("Un film avec cet imdbId existe déjà : " + movie.getImdbId());
+        }
+        // Sauvegarder le nouveau film
+        return movieRepository.insert(movie); // insert() pour forcer la création d'un nouveau document
+    }
+
+    /**
+     * DELETE - Supprimer un film par son ID
+     * @param id L'identifiant du film à supprimer
+     * @return true si supprimé, false si non trouvé
+     */
+    public boolean deleteMovie(ObjectId id) {
+        if (movieRepository.existsById(id)) {
+            movieRepository.deleteById(id);
+            return true;
+        }
+        return false;
+    }
+
 }
