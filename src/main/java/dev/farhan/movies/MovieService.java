@@ -19,6 +19,6 @@ public class MovieService {
      * Elle devra être implémentée pour utiliser movieRepository et retourner List<Movies>
      */
     public List<Movies> getAllMovies(){
-        return movieRepository.findAll();
+        return movieRepository.findAll();//findAll is a method desc in MongoRepositoryclass
     }
 }
