@@ -7,4 +7,11 @@ import org.springframework.stereotype.Service;
 public class ReviewService {
     @Autowired
     private ReviewReposiory reviewReposiory;
+
+    public Review createReview(String reviewBody, String imdbId) {
+         Review review = new Review(reviewBody);
+         reviewReposiory.insert(review);
+
+        return review;
+    }
 }

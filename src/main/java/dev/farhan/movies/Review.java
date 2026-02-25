@@ -18,4 +18,9 @@ public class Review {
     @Id
     private ObjectId id;
     private String body;
+    /*create custom constructor*/
+
+    public Review(String body) {
+        this.body = body;
+    }
 }
