@@ -38,4 +38,5 @@ return new ResponseEntity<Optional<Movies>>(movieService.getSingleMovie(id), Htt
     public ResponseEntity<Optional<Movies>> getMovieByImdbId(@PathVariable String imdbId) {
         return new ResponseEntity<Optional<Movies>>(movieService.getSingleMovie(imdbId), HttpStatus.OK);
     }
+
 }
