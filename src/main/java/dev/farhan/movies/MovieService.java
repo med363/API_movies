@@ -1,9 +1,11 @@
 package dev.farhan.movies;
 
+import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service  // Cette annotation indique que cette classe est un Service Spring
 // Un Service contient la logique métier de l'application
@@ -20,5 +22,15 @@ public class MovieService {
      */
     public List<Movies> getAllMovies(){
         return movieRepository.findAll();//findAll is a method desc in MongoRepositoryclass
+    }
+
+    /* get by id method*/
+    /**
+     * Récupère un film spécifique par son identifiant
+     * @param id L'identifiant unique du film (au format ObjectId de MongoDB)
+     * @return Un Optional contenant le film s'il est trouvé, ou Optional.empty() si aucun film ne correspond
+     */
+    public Optional<Movies> getSingleMovie(ObjectId id) {
+        return movieRepository.findById(id);
     }
 }
