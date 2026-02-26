@@ -26,7 +26,7 @@ public class MovieController {
     /*pull data from databse so we need service so we will create repository*/
 
     /*get by id*/
-    @GetMapping("{/id}")
+    @GetMapping("/{id}")
     public ResponseEntity<Optional<Movies>> getMovie(@PathVariable ObjectId id) {
 return new ResponseEntity<Optional<Movies>>(movieService.getSingleMovie(id), HttpStatus.OK);
     }
