@@ -1,5 +1,6 @@
 package dev.farhan.movies;
 
+import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;
@@ -29,14 +30,17 @@ public class ReviewService {
         //    Le repository s'occupe de l'insertion en base de données
         Review review = reviewReposiory.insert(new Review(reviewBody));
 
-        // 2. Mettre à jour le film correspondant pour y ajouter cette critique
+        // 2. Récupérer l'ID de la critique créée
+        ObjectId reviewId = review.getId();  // Récupère l'ObjectId généré par MongoDB
+
+        // 3. Mettre à jour le film correspondant pour y ajouter l'ID de cette critique
         //    MongoTemplate permet de faire une mise à jour plus complexe
         mongoTemplate.update(Movies.class)  // On cible la collection des films
                 .matching(Criteria.where("imdbId").is(imdbId))  // On cherche le film avec cet imdbId
-                .apply(new Update().push("reviewIds").value(review))  // On ajoute la critique au tableau reviewIds
+                .apply(new Update().push("reviewIds").value(reviewId))  // ✅ CORRECTION: On ajoute SEULEMENT l'ID de la critique au tableau reviewIds
                 .first();  // On applique la mise à jour au premier (et unique) film trouvé
 
-        // 3. Retourner la critique créée
+        // 4. Retourner la critique créée
         return review;
     }
 }
