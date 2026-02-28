@@ -22,7 +22,7 @@ const Hero = ({ movies }) => {
                                 <p>{movie.description}</p>
                             </div>
                             <div className="movie-buttons-container">
-                                <Link to={`/trailer/${movie.ytTrailerId}`} className="play-button-link">
+                                <Link to={`/trailer/${movie.trailerlink.substring(movie.trailerlink.length - 11)}`} className="play-button-link">
                                 <div className='play-button-icon-container'>
                                     <FontAwesomeIcon className='play-button-icon'
                                         icon= {faCirclePlay
