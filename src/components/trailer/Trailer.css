@@ -1,0 +1,11 @@
+.react-player-container {
+    height: 90vh;
+    background-color: black;
+}
+
+/* Ensure the player takes full dimensions of the container */
+.react-player-container > div {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
