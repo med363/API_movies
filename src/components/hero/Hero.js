@@ -9,7 +9,7 @@ const Hero = ({ movies }) => {
         <Carousel>
             {movies && movies.map((movie) => (
                 <Paper key={movie.id}>
-                    <img src={movie.poster} alt={movie.title} className='hero-image' />
+                    <img src={movie.backdrops} alt={movie.title} className='hero-image' />
                     <h2>{movie.title}</h2>
                     <p>{movie.description}</p>
                 </Paper>
