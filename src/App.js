@@ -7,11 +7,15 @@ function App() {
   const getMovies = async () => {
     try {
       const res = await api.get("/api/v1/movies");
+      /*show console*/
+      console.log(res.data);
+      
       setMovies(res.data);
     } catch (err) {
       console.log(err);
     }
   }
+  /*fct is executed when the component is mounted, it calls the getMovies function to fetch the movies data from the API and update the state with the retrieved data.*/
   useEffect(() => {
     getMovies();
   }, []);
