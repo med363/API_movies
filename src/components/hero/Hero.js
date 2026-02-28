@@ -8,10 +8,18 @@ const Hero = ({ movies }) => {
     <div>
         <Carousel>
             {movies && movies.map((movie) => (
-                <Paper key={movie.id}>
-                    <img src={movie.backdrops} alt={movie.title} className='hero-image' />
-                    <h2>{movie.title}</h2>
-                    <p>{movie.description}</p>
+                <Paper key={movie.id} className="movie-card-container">
+                    <div className="movie-card" style={{"--img": `url(${movie.backdrops[0]})`}}>
+                        <div className="movie-detail">
+                            <div className="movie-poster">
+                                <img src={movie.poster || movie.backdrops[0]} alt="" />
+                            </div>
+                            <div className="movie-title">
+                                <h2>{movie.title}</h2>
+                                <p>{movie.description}</p>
+                            </div>
+                        </div>
+                    </div>
                 </Paper>
             ))
             }

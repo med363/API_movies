@@ -1,6 +1,74 @@
-.hero-image{
+.movie-carousel-container {
+    background-color: black;
+  }
+  
+  .movie-card-container {
+    background-color: black;
+    height: 550px; /* fixed height for carousel items */
+    overflow: hidden;
+  }
+  
+  .movie-card {
+    background-repeat: no-repeat;
     width: 100%;
-    height: 100vh;
+    height: 100%;
+    background-size: cover;
+    /* Create a gradient overlay on top of the backdrop image */
+    background-image: linear-gradient(to bottom, rgba(0,0,0,0), rgba(0,0,0,1)), var(--img);
+    display: flex;
+    align-items: center; /* Vertically center content */
+    justify-content: center; /* Horizontally center content */
+  }
+  
+  .movie-detail {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px; /* Constrain width on large screens */
+    padding: 0 20px;
+  }
+  
+  .movie-poster {
+    display: flex;
+    align-items: center;
+    border: 1px solid gold;
+    border-radius: 10px;
+    overflow: hidden;
+    height: 300px;
+    /* aspect-ratio: 2/3; */
+  }
+  
+  .movie-poster > img {
+    height: 100%;
+    width: auto;
     object-fit: cover;
-    position: relative;
-}
+  }
+  
+  .movie-title {
+    color: white;
+    flex: 1; /* Take remaining space */
+    margin-left: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  .movie-title h2 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5); /* Make text pop against background */
+  }
+  
+  .movie-title p {
+    font-size: 1.2rem;
+    line-height: 1.5;
+    max-width: 800px;
+    /* Limit description to a few lines */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+  }
