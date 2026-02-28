@@ -1,6 +1,6 @@
 //child component of home, it will display the hero section of the home page, it will receive the movies data as a prop from the home component and display the hero section accordingly.
 import React from 'react'
-// import './hero.css'
+import './hero.css'
 import Carousel from 'react-material-ui-carousel'
 import { Paper, Button } from '@mui/material'   
 const Hero = ({ movies }) => {
