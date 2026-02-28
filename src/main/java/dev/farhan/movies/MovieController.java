@@ -13,6 +13,7 @@ import java.util.Optional;
 @RestController
 /*fix root*/
 @RequestMapping("/api/v1/movies")
+@CrossOrigin(origins = "http://localhost:3001")
 public class MovieController {
     /*inject svc in controller*/
     @Autowired
@@ -28,7 +29,7 @@ public class MovieController {
     /*get by id*/
     @GetMapping("/{id}")
     public ResponseEntity<Optional<Movies>> getMovie(@PathVariable ObjectId id) {
-return new ResponseEntity<Optional<Movies>>(movieService.getSingleMovie(id), HttpStatus.OK);
+        return new ResponseEntity<Optional<Movies>>(movieService.getSingleMovie(id), HttpStatus.OK);
     }
 
     @GetMapping("/{imdbId}")

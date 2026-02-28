@@ -18,6 +18,8 @@ public class Review {
     @Id
     private ObjectId id;
     private String body;
+    private String imdbId; // to link to a movie
+
     /*create custom constructor*/
 
     public Review(String body) {
