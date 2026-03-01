@@ -9,6 +9,7 @@ import java.util.Map;
 
 @RestController  // Indique que cette classe est un contrôleur REST (API)
 @RequestMapping("/api/v1/reviews")  // Toutes les URLs de ce contrôleur commencent par /api/v1/movies
+@CrossOrigin(origins = "http://localhost:3001")
 public class ReviewController {
 
     @Autowired  // Injection automatique du service de gestion des critiques
